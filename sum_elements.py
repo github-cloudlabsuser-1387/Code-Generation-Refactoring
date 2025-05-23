@@ -12,26 +12,24 @@ def main():
    try:
       n = int(input("Enter the number of elements (1-100): "))
       if not 1 <= n <= MAX:
-            print("Invalid input. Please provide a digit ranging from 1 to 100.")
-            exit(1)
+         print("Invalid input. Please provide a number between 1 and 100.")
+         return
 
       arr = []
-
       print(f"Enter {n} integers:")
-      for _ in range(n):
-            try:
-               arr.append(int(input()))
-            except ValueError:
-               print("Invalid input. Please enter valid integers.")
-               exit(1)
+      for i in range(n):
+         val = input(f"Element {i+1}: ")
+         try:
+            arr.append(int(val))
+         except ValueError:
+            print("Invalid input. Please enter valid integers.")
+            return
 
       total = calculate_sum(arr)
-
       print("Sum of the numbers:", total)
 
    except KeyboardInterrupt:
       print("\nProgram terminated by user.")
-      exit(1)
 
 if __name__ == "__main__":
    main()
